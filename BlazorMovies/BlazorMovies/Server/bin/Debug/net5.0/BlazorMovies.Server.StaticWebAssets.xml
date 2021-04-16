@@ -1,0 +1,5 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\bin\Debug\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\wwwroot\" />
+</StaticWebAssets>
