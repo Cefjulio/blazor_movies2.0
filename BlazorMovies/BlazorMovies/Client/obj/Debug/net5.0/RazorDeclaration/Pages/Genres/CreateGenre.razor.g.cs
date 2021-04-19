@@ -96,6 +96,13 @@ using BlazorMovies.Shared.Entities;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 13 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\_Imports.razor"
+using BlazorMovies.Client.Repository;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/genre/create")]
     public partial class CreateGenre : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,19 +112,36 @@ using BlazorMovies.Shared.Entities;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 7 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\Genres\CreateGenre.razor"
+#line 10 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\Genres\CreateGenre.razor"
        
     private Genre genre = new Genre();
 
-    private void Create()
+    private async Task Create()
     {
         Console.WriteLine("Create method");
         Console.WriteLine(genre.Name);
+
+        try
+        {
+            await genreRepository.CreateGenre(genre);
+            navigationManager.NavigateTo("genres");
+
+
+        }catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+
+
+
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGenreRepository genreRepository { get; set; }
     }
 }
 #pragma warning restore 1591

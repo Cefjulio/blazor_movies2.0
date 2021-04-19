@@ -93,6 +93,13 @@ using BlazorMovies.Shared.Entities;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 13 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\_Imports.razor"
+using BlazorMovies.Client.Repository;
+
+#line default
+#line hidden
+#nullable disable
     public partial class PersonForm : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
