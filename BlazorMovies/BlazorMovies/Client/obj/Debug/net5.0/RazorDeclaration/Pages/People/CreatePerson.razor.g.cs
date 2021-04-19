@@ -112,18 +112,35 @@ using BlazorMovies.Client.Repository;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 7 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\People\CreatePerson.razor"
+#line 9 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\People\CreatePerson.razor"
        
     Person Person = new Person();
 
-    private void Create()
+    private async Task Create()
     {
-        Console.WriteLine("creating person...");
+
+        try
+        {
+
+            await personRepository.CreatePerson(Person);
+            navigationManager.NavigateTo("people");
+
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+
+        
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPersonRepository personRepository { get; set; }
     }
 }
 #pragma warning restore 1591
