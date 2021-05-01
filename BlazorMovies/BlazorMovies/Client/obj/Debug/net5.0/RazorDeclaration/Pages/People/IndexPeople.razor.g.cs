@@ -111,6 +111,36 @@ using BlazorMovies.Client.Repository;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 36 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\People\IndexPeople.razor"
+       
+
+    List<Person> People;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            People = await personRepository.GetPeople();
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+
+
+
+
+
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPersonRepository personRepository { get; set; }
     }
 }
 #pragma warning restore 1591

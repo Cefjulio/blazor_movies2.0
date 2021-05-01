@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace BlazorMovies.Client.Repository
 {
-    public interface IGenreRepository
+    public interface IMoviesRepository
     {
+        Task<int> CreateMovie(Movie movie);
+        Task DeleteMovie(int Id);
 
-        Task CreateGenre(Genre genre);
-        Task<List<Genre>> GetGenres();
+        Task UpdateMovie(Movie movie);
+
     }
 }

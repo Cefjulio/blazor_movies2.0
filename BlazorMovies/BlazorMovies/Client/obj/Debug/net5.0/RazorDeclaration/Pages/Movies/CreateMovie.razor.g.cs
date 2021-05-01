@@ -112,13 +112,22 @@ using BlazorMovies.Client.Repository;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\Movies\CreateMovie.razor"
-       
+#line 16 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\Movies\CreateMovie.razor"
+        
+
 
     private Movie Movie = new Movie();
 
-    private List<Genre> NotSelectedGenres = new List<Genre>()
+
+    protected async override Task OnInitializedAsync()
     {
+        NotSelectedGenres = await genreRepository.GetGenres();
+    }
+
+
+
+    private List<Genre> NotSelectedGenres = new List<Genre>()
+        {
         new Genre(){Id = 1, Name = "Action"},
         new Genre(){Id = 2, Name = "Comedy"},
         new Genre(){Id = 3, Name = "Drama"}
@@ -131,9 +140,13 @@ using BlazorMovies.Client.Repository;
         //navigationManager.NavigateTo("movie");
     }
 
+    
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGenreRepository genreRepository { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMoviesRepository moviesRepository { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }

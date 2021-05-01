@@ -111,6 +111,34 @@ using BlazorMovies.Client.Repository;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 61 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Pages\Genres\IndexGenres.razor"
+       
+
+    List<Genre> Genres;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            Genres = await genreRepository.GetGenres();
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+
+    }
+
+
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGenreRepository genreRepository { get; set; }
     }
 }
 #pragma warning restore 1591

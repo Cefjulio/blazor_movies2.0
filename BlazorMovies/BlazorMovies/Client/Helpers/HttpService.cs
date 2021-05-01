@@ -21,6 +21,32 @@ namespace BlazorMovies.Client.Helpers
         }
 
 
+        public async Task <HttpResponseWrapper<T>> Get <T>(string url)
+        {
+
+
+            var responseHTTP = await httpClient.GetAsync(url);
+
+            if (responseHTTP.IsSuccessStatusCode)
+            {
+
+                var response = await Deserialize<T>(responseHTTP,
+                                                    defaultJsonSerializerOptions);
+                return new HttpResponseWrapper<T>(response, true, responseHTTP);
+
+            }else
+            {
+                return new HttpResponseWrapper<T>(default, false, responseHTTP);
+            }
+
+
+        }
+
+
+
+
+
+
         public async Task<HttpResponseWrapper<object>> Post<T>(string url, T data)
         {
 
@@ -32,5 +58,26 @@ namespace BlazorMovies.Client.Helpers
 
         }
 
+        public Task<HttpResponseWrapper<TResponse>> Post<T, TResponse>(string url, T data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<HttpResponseWrapper<object>> Delete(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<HttpResponseWrapper<object>> Put<T>(string url, T data)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private async Task<T> Deserialize<T>(HttpResponseMessage httpResponse, JsonSerializerOptions options)
+        {
+            var responseString = await httpResponse.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(responseString, options);
+        }
     }
 }

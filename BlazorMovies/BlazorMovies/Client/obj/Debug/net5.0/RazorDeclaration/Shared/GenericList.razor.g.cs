@@ -111,11 +111,12 @@ using BlazorMovies.Client.Repository;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Shared\GenericList.razor"
+#line 40 "C:\Users\auyon.j6356\source\repos\Start\BlazorMovies\BlazorMovies\Client\Shared\GenericList.razor"
        
     [Parameter] public RenderFragment NullTemplate { get; set; }
     [Parameter] public RenderFragment EmptyTemplate { get; set; }
     [Parameter] public RenderFragment<TItem> ElementTemplate { get; set; }
+    [Parameter] public RenderFragment WholeListTemplate { get; set; }
     [Parameter] public List<TItem> List { get; set; }
 
 #line default
